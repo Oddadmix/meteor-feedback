@@ -49,7 +49,7 @@ Meteor.startup(function(){
       Feedback._vibrate(fdbk.vibrate);
     }
     if( fdbk.sound ){
-      Feedback._play( fdbk.sound );
+      Feedback._play( fdbk.sound,fdbk.repeat );
     }
   }
 });
