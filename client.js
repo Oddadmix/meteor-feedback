@@ -17,9 +17,20 @@ if( Meteor.isCordova ){
       console.log( err.code );
     };
   Meteor.startup(function(){
-    Feedback._play = function(path){
-      var my_media = new Media( Meteor.absoluteUrl(path), mediaSuccess, mediaErr );
-      my_media.play();
+    Feedback._play = function(path,repeat){
+      if(repeat == true){
+        var loop = function (status) {
+            if (status === Media.MEDIA_STOPPED) {
+                myMedia.play();
+            }
+        };        
+        var my_media = new Media( Meteor.absoluteUrl(path), mediaSuccess, mediaErr,loop );
+        my_media.play();
+      }else{
+        var my_media = new Media( Meteor.absoluteUrl(path), mediaSuccess, mediaErr );
+        my_media.play();        
+      }
+
     }
   });
 }else{
