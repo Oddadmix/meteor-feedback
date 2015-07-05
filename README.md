@@ -5,7 +5,8 @@ This package provides feedback (vibrate, sound) to both Cordova and Browser.
     Feedback.profiles = {
       "somethingHappened": {
         sound: "/sounds/playSomething.mp3",
-        vibrate: [500,50,500,50,100] 
+        vibrate: [500,50,500,50,100] ,
+        repeat : false
       }
     }
 
